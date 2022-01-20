@@ -5,55 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @extends("components.bootstrap")
+    @include("components.bootstrap")
     <link rel="stylesheet" href="https://getbootstrap.com/docs/5.1/examples/sign-in/signin.css">
     <title>Laravel</title>
-    <style>
-        body{
-            background-color: #f5f5f5 !important;
-        }
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-        .checkbox a{
-            text-decoration: none;
-        }
-    </style>
+    @include("components.forms-css")
 </head>
 
 <body class="text-center">
     <main class="form-signin">
-            <img class="mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt=""
-                width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal">Please Log In</h1>
-            <form method="POST" action="/login/post">
-                @csrf
-                <div class="form-floating">
-                    <input name="email" value="{{old("email")}}" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                  </div>
-                  <div class="form-floating">
-                    <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                  </div>
-                  <div class="checkbox mb-3">
-                    <label>
-                      <a href="forgot/password">Forgot Password?</a>
-                    </label>
-                  </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Log In</button>
-                <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
-            </form>
+
+        @include("components.forms-img")
+
+        <h1 class="h3 mb-3 fw-normal">Please Log In</h1>
+        <form method="POST" action="/login/post">
+            @csrf
+            <div class="form-floating">
+                <input name="email" value="{{ old('email') }}" type="email" class="form-control" id="floatingInput"
+                    placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input name="password" type="password" class="form-control" id="floatingPassword"
+                    placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                    <a href="forgot/password">Forgot Password?</a>
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Log In</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+        </form>
 
 
 

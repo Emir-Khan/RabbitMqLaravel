@@ -24,16 +24,14 @@ class RegisterRequest extends FormRequest
     public function attributes()
     {
         return [
-            "password"=>"Şifre",
+            "password"=>"Password",
             "email"=>"Email",
-            "name" =>"Ad"
+            "name" =>"Name"
         ];
     }
     public function Messages()
     {
         return [
-            "password.required"=>":attribute alanı boş bırakılamaz.",
-            "name.required" =>"Geçersiz :attribute"
         ];
     }
     public function rules()

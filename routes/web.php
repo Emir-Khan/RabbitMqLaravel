@@ -14,3 +14,6 @@ Route::post("/register/post","RequestController@postRegister");
 
 Route::get('/forgot/password', "RequestController@forgotPassword")->name("resetPassword");
 Route::post("/forgot/password/reset","RequestController@postForgotPassword");
+
+Route::get('/reset/password/link/{link}', "RequestController@resetPasswordWithLink");
+Route::post("/reset/password/link/change","RequestController@postResetPasswordWithLink");

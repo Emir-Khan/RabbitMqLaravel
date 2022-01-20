@@ -10,7 +10,7 @@ class TestController extends Controller
 {
     public function index()
     {
-            /* $users= DB::table("users");
+        /* $users= DB::table("users");
             print_r($users);
             TestJob::dispatch($users->toArray()); */
     }
