@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Jobs\TestJob;
-use Illuminate\Support\Str;
-use App\Models\User;
 use App\Models\UserModel;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Mockery\Undefined;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
@@ -96,7 +91,7 @@ class RequestController extends Controller
             }
         }
         if ($checkedUser == null) {
-            return redirect("/login")->withInput() - with("error", "Email or Password Wrong");
+            return redirect("/login")->withInput()->with("error", "Email or Password Wrong");
         }
 
         print_r("<h1 style='color:green;'>Login Success</h1>" . $checkedUser->name . "<br><br><a href='/'>Return to Main Page</a>");
